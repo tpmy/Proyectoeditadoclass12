@@ -36,22 +36,50 @@ ul {
 .header__content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .content__title {
   color: #22c55e;
 }
+.content__title:hover::after {
+  /* propiedad obligatoria */
+  content: 'inicio';
+  margin-left: 8px;
+  font-size: 15px;
+  color: #e2e8f0;
+}
 
 .content__navbar {
   display: flex;
+  align-items: center;
 }
 
 .content__navbar li {
   margin: 0 15px;
+  transition: transform 0.3s;
+  
+}
+/* first-child: aplica estilos al primer elemento hermano */
+/* nth-child */
+/* odd: impares */
+/* even:pares */
+.content__navbar li:nth-child(3) {
+  border: 1px solid #22c55e;
+  border-radius: 20px;
+  padding: 10px;
+}
+.content__navbar li:active {
+  transform: scale(0.9);
 }
 
 .content__navbar li a {
   color: #e2e8f0;
+  font-weight: bold;
+}
+.content__navbar li a:hover {
+  color: #22c55e;
+  transition: color 0.3s;
   font-weight: bold;
 }
 
@@ -176,6 +204,47 @@ ul {
   /* row-gap: espaciar verticalmente */
   /* column-gap: horizontalmente */
 }
+/* footer */
+.footer {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  padding: 50px 20px;
+  margin-top: 50px ;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+.footer__grid h4 {
+  color: #22c55e;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.footer__grid-list li {
+  margin: 10px 0px;
+}
+.footer__grid-list li a {
+  color: #e2e8f0;
+  transition: color 0.3s;
+}
+.footer__grid-list li a:hover {
+  color: #22c55e ;  
+}
+.footer__rrss {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.footer__rrss a {
+  color: #e2e8f0;
+  font-size: 30px;
+  transition: color 0.3s;
+}
+.footer__rrss a:hover {
+  color: #22c55e;
+}
 
 /* MOBILE LAST */
 @media (max-width: 992px) {
@@ -183,9 +252,17 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media (max-width:768px){
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 @media (max-width: 576px) {
   .courses__grid {
+    grid-template-columns: 1fr;
+  }
+  .footer__grid {
     grid-template-columns: 1fr;
   }
 
